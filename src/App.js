@@ -11,7 +11,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div
+          className="container"
+          style={{ paddingTop: '25px', paddingBottom: '25px' }}
+        >
           <Header />
           <Switch>
             <Route exact path="/" component={Catalog} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import AppActions from '../../actions/app-actions';
 import CartButton from './CartButton';
+import { formatPrice } from '../../helpers';
 
 const CartItem = props => {
   return (
@@ -26,7 +27,7 @@ const CartItem = props => {
           />
         </div>
       </td>
-      <td>{props.subtotal}</td>
+      <td>{formatPrice(props.subtotal)}</td>
     </tr>
   );
 };

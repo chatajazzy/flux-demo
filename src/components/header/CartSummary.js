@@ -2,6 +2,7 @@ import React from 'react';
 import AppStore from '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../../helpers';
 
 const CartSummary = props => {
   return (
@@ -13,7 +14,7 @@ const CartSummary = props => {
     >
       <Link to="/cart" className="btn btn-success">{`Cart Items: ${
         props.qty
-      } / ${props.total}`}</Link>
+      } / ${props.total && formatPrice(props.total)}`}</Link>
     </div>
   );
 };
