@@ -6,11 +6,18 @@ const Header = () => {
   return (
     <div
       className="row"
-      style={{ borderBottom: '1px solid #ccc', marginBottom: '25px' }}
+      style={{
+        paddingBottom: '25px'
+      }}
     >
-      <div className="col-sm-2">
+      <div
+        className="col-sm-2"
+        style={{
+          margin: 'auto'
+        }}
+      >
         <h1>
-          <Link to="/">Store</Link>
+          <Link to="/">FluxStore</Link>
         </h1>
       </div>
       <div className="col-sm-10 text-right">
