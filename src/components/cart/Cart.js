@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import AppStore from '../../stores/app-store';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 import CartItem from './CartItem';
+import CartTable from './CartTable';
 import { Link } from 'react-router-dom';
 
 const cartItems = () => {
   return { items: AppStore.getCart() };
 };
+const emptyCart = (
+  <p>
+    Your cart is currently empty. You can change it by going to
+    <Link to="/" style={{ marginLeft: '5px' }}>
+      catalog.
+    </Link>
+  </p>
+);
 
 const Cart = props => {
   let total = 0;
@@ -16,31 +25,18 @@ const Cart = props => {
     return <CartItem key={i} item={item} subtotal={subtotal} />;
   });
   return (
-    <div>
-      <h1>Cart</h1>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th />
-            <th>Item</th>
-            <th>Qty</th>
-            <th />
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>{cartItems}</tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="4" className="text-rigth">
-              Total
-            </td>
-            <td>{total}</td>
-          </tr>
-        </tfoot>
-      </table>
-      <Link to="/" className="btn btn-default btn-sm">
-        Continue shopping
-      </Link>
+    <div style={{ paddingTop: '25px' }}>
+      <h1 style={{ marginBottom: '25px' }}>Cart</h1>
+      {total ? (
+        <div>
+          <CartTable cartItems={cartItems} total={total} />
+          <Link to="/" className="btn btn-default btn-sm">
+            Continue shopping
+          </Link>
+        </div>
+      ) : (
+        emptyCart
+      )}
     </div>
   );
 };
