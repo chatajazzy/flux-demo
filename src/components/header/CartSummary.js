@@ -6,15 +6,13 @@ import { formatPrice } from '../../helpers';
 
 const CartSummary = props => {
   return (
-    <div
-      style={{
-        padding: '15px',
-        paddingRight: 0
-      }}
-    >
-      <Link to="/cart" className="btn btn-success">{`Cart Items: ${
-        props.qty
-      } / ${props.total && formatPrice(props.total)}`}</Link>
+    <div style={{ padding: '15px', paddingRight: 0 }}>
+      <Link to="/cart">
+        <button className="btn btn-basic" style={{ backgroundColor: 'pink' }}>
+          {`Cart Items: ${props.qty} / ${props.total &&
+            formatPrice(props.total)}`}
+        </button>
+      </Link>
     </div>
   );
 };
